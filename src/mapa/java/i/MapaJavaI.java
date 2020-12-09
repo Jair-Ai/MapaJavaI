@@ -16,6 +16,8 @@ public class MapaJavaI {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        GameScore nossaTela = new GameScore();
+        nossaTela.setVisible(true);
     }
     
 }
