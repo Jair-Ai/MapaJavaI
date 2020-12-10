@@ -45,10 +45,11 @@ public class GameScore extends javax.swing.JFrame {
         mais3TimeB = new javax.swing.JButton();
         vencedor = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        javax.swing.JButton resetarPontos = new javax.swing.JButton();
+        resetarPontos = new javax.swing.JButton();
         restart = new javax.swing.JButton();
         placar = new javax.swing.JLabel();
         label1 = new java.awt.Label();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
 
         warning.setLabel("Aviso");
         warning.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +147,7 @@ public class GameScore extends javax.swing.JFrame {
 
         resetarPontos.setForeground(java.awt.Color.orange);
         resetarPontos.setText("Recomecar a Partida");
+        resetarPontos.setActionCommand("");
         resetarPontos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetarPontosActionPerformed(evt);
@@ -230,7 +232,9 @@ public class GameScore extends javax.swing.JFrame {
                         .addComponent(restart, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(142, 142, 142)
-                        .addComponent(resetarPontos, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(resetarPontos, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -279,10 +283,16 @@ public class GameScore extends javax.swing.JFrame {
                             .addComponent(maisTimeB))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mais3TimeB)))
-                .addGap(49, 49, 49)
-                .addComponent(resetarPontos)
-                .addGap(18, 18, 18)
-                .addComponent(restart))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(resetarPontos)
+                        .addGap(18, 18, 18)
+                        .addComponent(restart))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62))))
         );
 
         label1.getAccessibleContext().setAccessibleName("Placar Jair -Jogo de Cartas");
@@ -343,7 +353,13 @@ public class GameScore extends javax.swing.JFrame {
         
         if (placarAtual>=3){
             vencedor.setText("O vencedor é o Time "+team+".");
-            
+            mais3TimeA.setEnabled(false);
+            mais3TimeB.setEnabled(false);
+            menosTimeA.setEnabled(false);
+            menosTimeB.setEnabled(false);
+            maisTimeA.setEnabled(false);
+            maisTimeB.setEnabled(false);
+            resetarPontos.setEnabled(false);
         }    
     }
     private void mais3TimeAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mais3TimeAActionPerformed
@@ -372,6 +388,13 @@ public class GameScore extends javax.swing.JFrame {
         placarA.setText("0");
         placarB.setText("0");
         vencedor.setText("X");
+        mais3TimeA.setEnabled(true);
+        mais3TimeB.setEnabled(true);
+        menosTimeA.setEnabled(true);
+        menosTimeB.setEnabled(true);
+        maisTimeA.setEnabled(true);
+        maisTimeB.setEnabled(true);
+        resetarPontos.setEnabled(true);
     }//GEN-LAST:event_restartActionPerformed
 
     private void menosTimeAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosTimeAActionPerformed
@@ -442,6 +465,7 @@ public class GameScore extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Pontos;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -459,6 +483,7 @@ public class GameScore extends javax.swing.JFrame {
     private java.awt.TextField placarB;
     private java.awt.TextField pontosA;
     private java.awt.TextField pontosB;
+    private javax.swing.JButton resetarPontos;
     private javax.swing.JButton restart;
     private javax.swing.JTextField vencedor;
     private java.awt.PopupMenu warning;
