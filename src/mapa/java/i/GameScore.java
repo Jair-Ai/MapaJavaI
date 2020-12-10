@@ -27,6 +27,7 @@ public class GameScore extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        warning = new java.awt.PopupMenu();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         placarB = new java.awt.TextField();
@@ -44,9 +45,17 @@ public class GameScore extends javax.swing.JFrame {
         mais3TimeB = new javax.swing.JButton();
         vencedor = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        javax.swing.JButton resetarPontos = new javax.swing.JButton();
+        restart = new javax.swing.JButton();
         placar = new javax.swing.JLabel();
+        label1 = new java.awt.Label();
+
+        warning.setLabel("Aviso");
+        warning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                warningActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +94,11 @@ public class GameScore extends javax.swing.JFrame {
         });
 
         menosTimeA.setText("-1");
+        menosTimeA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menosTimeAActionPerformed(evt);
+            }
+        });
 
         maisTimeA.setText("+1");
         maisTimeA.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +115,11 @@ public class GameScore extends javax.swing.JFrame {
         });
 
         menosTimeB.setText("-1");
+        menosTimeB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menosTimeBActionPerformed(evt);
+            }
+        });
 
         maisTimeB.setText("+1");
         maisTimeB.addActionListener(new java.awt.event.ActionListener() {
@@ -125,116 +144,128 @@ public class GameScore extends javax.swing.JFrame {
 
         jLabel3.setText("Vencedor");
 
-        jButton1.setForeground(java.awt.Color.orange);
-        jButton1.setText("Recomecar a Partida");
-
-        jButton2.setBackground(java.awt.Color.red);
-        jButton2.setForeground(new java.awt.Color(251, 12, 24));
-        jButton2.setText("Recomecar Jogo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        resetarPontos.setForeground(java.awt.Color.orange);
+        resetarPontos.setText("Recomecar a Partida");
+        resetarPontos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                resetarPontosActionPerformed(evt);
+            }
+        });
+
+        restart.setBackground(new java.awt.Color(248, 241, 241));
+        restart.setForeground(new java.awt.Color(251, 12, 24));
+        restart.setText("Recomecar Jogo");
+        restart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restartActionPerformed(evt);
             }
         });
 
         placar.setText("Placar");
+
+        label1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        label1.setText("Placar Jair -Jogo de Cartas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(placarA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pontosB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(placarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(menosTimeB)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(mais3TimeB)
-                            .addComponent(maisTimeB))
-                        .addGap(21, 21, 21)))
-                .addGap(96, 96, 96))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(maisTimeB)
+                            .addComponent(pontosB, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                            .addComponent(placarB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(106, 106, 106))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(placar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(vencedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pontosA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93)
-                        .addComponent(Pontos))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(menosTimeA)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(mais3TimeA)
-                            .addComponent(maisTimeA))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(menosTimeA)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(mais3TimeA)
+                                    .addComponent(maisTimeA)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(placar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Pontos))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(7, 7, 7)
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(61, 61, 61)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(placarA, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pontosA, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(168, 168, 168)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(96, 96, 96))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(vencedor, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(restart, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(resetarPontos, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vencedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vencedor)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(placar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(placarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(placarA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pontosA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pontosB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2))
+                        .addGap(35, 35, 35)
                         .addComponent(Pontos)
-                        .addGap(37, 37, 37)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(placarA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(placarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pontosA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pontosB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -248,11 +279,13 @@ public class GameScore extends javax.swing.JFrame {
                             .addComponent(maisTimeB))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mais3TimeB)))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)))
+                .addGap(49, 49, 49)
+                .addComponent(resetarPontos)
+                .addGap(18, 18, 18)
+                .addComponent(restart))
         );
+
+        label1.getAccessibleContext().setAccessibleName("Placar Jair -Jogo de Cartas");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -274,28 +307,103 @@ public class GameScore extends javax.swing.JFrame {
     }//GEN-LAST:event_pontosBActionPerformed
 
     private void maisTimeAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maisTimeAActionPerformed
-        // TODO add your handling code here:
+        int actualPointsA = Integer.parseInt(pontosA.getText());
+        actualPointsA+=1;
+        checkPoints("A", actualPointsA);
+        
     }//GEN-LAST:event_maisTimeAActionPerformed
+    private void checkPoints(String team, int points){
 
+        if (team.equals("A")){
+            pontosA.setText(String.valueOf(points));
+        }
+        else{
+            pontosB.setText(String.valueOf(points));
+        }
+        
+        if (points>=12){
+                pontosA.setText("0");
+                pontosB.setText("0");
+                checkPlacar(team); 
+            }
+    }
+    
+    private void checkPlacar(String team){
+        int placarAtual;
+        if (team.equals("A")){
+            placarAtual = Integer.parseInt(placarA.getText());
+            placarAtual+=1;
+            placarA.setText(String.valueOf(placarAtual));
+        }
+        else{
+            placarAtual = Integer.parseInt(placarB.getText());
+            placarAtual+=1;
+            placarB.setText(String.valueOf(placarAtual));
+        }
+        
+        if (placarAtual>=3){
+            vencedor.setText("O vencedor é o Time "+team+".");
+            
+        }    
+    }
     private void mais3TimeAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mais3TimeAActionPerformed
-        // TODO add your handling code here:
+        int actualPointsA = Integer.parseInt(pontosA.getText());
+        actualPointsA+=3;
+        checkPoints("A", actualPointsA);
     }//GEN-LAST:event_mais3TimeAActionPerformed
 
     private void maisTimeBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maisTimeBActionPerformed
-        // TODO add your handling code here:
+        int actualPointsB = Integer.parseInt(pontosB.getText());
+        actualPointsB+=1;
+        checkPoints("B", actualPointsB);
     }//GEN-LAST:event_maisTimeBActionPerformed
 
     private void mais3TimeBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mais3TimeBActionPerformed
-        // TODO add your handling code here:
+        int actualPointsB = Integer.parseInt(pontosB.getText());
+        actualPointsB+=3;
+        checkPoints("B", actualPointsB);
     }//GEN-LAST:event_mais3TimeBActionPerformed
 
     private void vencedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vencedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_vencedorActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void restartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restartActionPerformed
+        placarA.setText("0");
+        placarB.setText("0");
+        vencedor.setText("X");
+    }//GEN-LAST:event_restartActionPerformed
+
+    private void menosTimeAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosTimeAActionPerformed
+        int actualPoints = Integer.parseInt(pontosA.getText());
+        if (actualPoints > 0){
+            actualPoints-=1;
+            pontosA.setText(String.valueOf(actualPoints));
+        }
+    }//GEN-LAST:event_menosTimeAActionPerformed
+
+    private void menosTimeBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosTimeBActionPerformed
+        int actualPoints = Integer.parseInt(pontosA.getText());
+        if (actualPoints > 0){
+            actualPoints-=1;
+            pontosB.setText(String.valueOf(actualPoints));
+        }
+    }//GEN-LAST:event_menosTimeBActionPerformed
+
+    private void resetarPontosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetarPontosActionPerformed
+        if (Integer.parseInt(placarA.getText()) <3 && Integer.parseInt(placarA.getText())<3){
+            pontosA.setText("0");
+            pontosB.setText("0");
+        }
+        else{
+            AvisoGame dialog = new AvisoGame(new javax.swing.JFrame(), true);
+            dialog.setVisible(true);
+        }
+    }//GEN-LAST:event_resetarPontosActionPerformed
+
+    private void warningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warningActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_warningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,13 +442,12 @@ public class GameScore extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Pontos;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private java.awt.Label label1;
     private javax.swing.JButton mais3TimeA;
     private javax.swing.JButton mais3TimeB;
     private javax.swing.JButton maisTimeA;
@@ -352,6 +459,8 @@ public class GameScore extends javax.swing.JFrame {
     private java.awt.TextField placarB;
     private java.awt.TextField pontosA;
     private java.awt.TextField pontosB;
+    private javax.swing.JButton restart;
     private javax.swing.JTextField vencedor;
+    private java.awt.PopupMenu warning;
     // End of variables declaration//GEN-END:variables
 }
